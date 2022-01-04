@@ -12,10 +12,10 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
 
 @Configuration
-public class UserRoute {
+public class UserRouter {
 
     @Bean
-    public RouterFunction<ServerResponse> route(UserHandler userHandler) {
+    public RouterFunction<ServerResponse> userRoute(UserHandler userHandler) {
         return RouterFunctions
                 .route(GET("/users").and(accept(MediaType.APPLICATION_JSON)), userHandler::getAll);
     }
