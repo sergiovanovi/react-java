@@ -1,3 +1,20 @@
+<h1>Video</h1>
 <video src="/videos/123" width="720px" height="480px" controls preload="none">
-
 </video>
+
+<br/>
+<br/>
+<br/>
+
+<h1>Stream</h1>
+<div id="result">
+</div>
+<script type="text/javascript">
+    var source = new EventSource("/time");
+    source.onopen = function(event) {
+        document.getElementById("result").innerHTML += "Start" + "<br>";
+    };
+    source.onmessage = function(event) {
+        document.getElementById("result").innerHTML += event.data + "<br>";
+    };
+</script>
